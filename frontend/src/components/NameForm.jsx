@@ -5,7 +5,7 @@ const NameForm = ({ onNext, onPrevious }) => {
   const [lastName, setLastName] = useState('');
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50">
+    <div className="flex flex-col items-center justify-center min-h-screen ">
       <div className="bg-white p-6 rounded shadow-md w-full max-w-sm">
         <h1 className="text-2xl font-semibold mb-4 text-center">
           Before we start, what is your name?

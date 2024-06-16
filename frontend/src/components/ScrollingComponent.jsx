@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import StartPage from './StartPage';
 import NameForm from './NameForm';
 import EmailForm from './EmailForm';
@@ -18,20 +18,19 @@ const ScrollingComponent = () => {
   const ref6 = useRef(null);
   const ref7 = useRef(null);
   const ref8 = useRef(null);
+  const ref9 = useRef(null);
 
   const sections = [
     { component: <StartPage onStart={() => scrollToSection(1)} />, ref: ref1 },
     { component: <NameForm onNext={() => scrollToSection(2)} />, ref: ref2 },
-    { component: <EmailForm onNext={() => scrollToSection(3)} onPrevious={() => scrollToSection(0)} />, ref: ref3 },
-    { component: <CountryForm onNext={() => scrollToSection(4)} onPrevious={() => scrollToSection(1)} />, ref: ref4 },
-    { component: <PhoneNumberForm onNext={() => scrollToSection(5)} onPrevious={() => scrollToSection(2)} />, ref: ref5 },
-    { component: <LanguagesForm onNext={() => scrollToSection(6)} onPrevious={() => scrollToSection(3)} />, ref: ref6 },
-    { component: <CodingExperienceForm onNext={() => scrollToSection(7)} onPrevious={() => scrollToSection(4)} />, ref: ref7 },
-    { component: <AnnualCompensationForm onNext={() => scrollToSection(8)} onPrevious={() => scrollToSection(5)} />, ref: ref8 },
-    { component: <CertifyingStatementForm onPrevious={() => scrollToSection(6)} />, ref: null },
+    { component: <EmailForm onNext={() => scrollToSection(3)} onPrevious={() => scrollToSection(1)} />, ref: ref3 },
+    { component: <CountryForm onNext={() => scrollToSection(4)} onPrevious={() => scrollToSection(2)} />, ref: ref4 },
+    { component: <PhoneNumberForm onNext={() => scrollToSection(5)} onPrevious={() => scrollToSection(3)} />, ref: ref5 },
+    { component: <LanguagesForm onNext={() => scrollToSection(6)} onPrevious={() => scrollToSection(4)} />, ref: ref6 },
+    { component: <CodingExperienceForm onNext={() => scrollToSection(7)} onPrevious={() => scrollToSection(5)} />, ref: ref7 },
+    { component: <AnnualCompensationForm onNext={() => scrollToSection(8)} onPrevious={() => scrollToSection(6)} />, ref: ref8 },
+    { component: <CertifyingStatementForm onPrevious={() => scrollToSection(7)} />, ref: ref9 },
   ];
-
-  const [activeSection, setActiveSection] = useState(0);
 
   const scrollToSection = (index) => {
     if (index >= 0 && index < sections.length) {
@@ -39,17 +38,16 @@ const ScrollingComponent = () => {
         behavior: 'smooth',
         block: 'start',
       });
-      setActiveSection(index);
     }
   };
 
   return (
-    <div>
+    <div className="flex flex-col items-center">
       {sections.map((section, index) => (
         <div
           key={index}
           ref={section.ref}
-          className={`h-screen flex items-center justify-center ${activeSection === index ? 'block' : 'hidden'}`}
+          className="h-screen flex items-center justify-center w-full"
         >
           {section.component}
         </div>

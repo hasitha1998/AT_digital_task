@@ -29,13 +29,13 @@ const AppRoutes = () => {
     <Router>
       <Routes>
         {/* Public Routes */}
-        <Route path="/" element={<Home />} />
+        <Route path="/home-one" element={<Home />} />
         <Route path="/home" element={<HomeScreen/>} />
         <Route path="/name" element={<NameForm />} />
           <Route path="/email" element={<EmailForm />} />
           <Route path="/country" element={<CountryForm />} />
           <Route path="/phone" element={<PhoneForm />} />
-          <Route path="/scroll" element={<ScrollingComponent />} />
+          <Route path="/" element={<ScrollingComponent />} />
 
         <Route path="/page-one" element={<PageOne />} />
         <Route path="/page-two" element={<PageTwo />} />

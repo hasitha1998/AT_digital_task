@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import AppRoutes from "./routes/app-routes";
 import './App.css'
 
 function App() {
@@ -7,9 +7,13 @@ function App() {
   return (
     <>
   
-      <h1 className="text-Success_color">Hello</h1>
+  <div>
+      <AppRoutes />
       
+      </div>
     </>
+      
+    
   )
 }
 
